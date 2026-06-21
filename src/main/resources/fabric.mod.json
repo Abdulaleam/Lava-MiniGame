@@ -3,9 +3,9 @@
 	"id": "lava",
 	"version": "${version}",
 	"name": "Lava",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "This mod is lava yes lava",
 	"authors": [
-		"Me!"
+		"Rainy!"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -21,7 +21,7 @@
 		"fabric-datagen": [
 			"rainy.net.lava.LavaDataGenerator"
 		],
-		"Client": ["rainy.net.lava.LavaModClient"]
+		"client": ["rainy.net.lava.LavaModClient"]
 	},
 	"mixins": [
 		"lava.mixins.json"
