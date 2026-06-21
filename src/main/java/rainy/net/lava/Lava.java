@@ -2,6 +2,8 @@ package rainy.net.lava;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
@@ -14,8 +16,19 @@ public class Lava implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+         ModServerTick.register();
 		ModItems.registerModItems();
 	}
+	public class ModServerTick {
 
- }
+		public static void register() {
+
+			ServerTickEvents.END_SERVER_TICK.register(server -> {
+
+				for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
+
+					LavaStartAbility.tick(player, player.getWorld());
+				}
+			});
+
+ }}}

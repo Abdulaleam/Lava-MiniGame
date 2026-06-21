@@ -15,21 +15,26 @@ public class LavaStartAbility {
     private static int ticks = 0;
 
     public static void toggleStart(ServerPlayerEntity player) {
-        ACTIVE.add(player.getUuid());}
+        ACTIVE.add(player.getUuid());
+    }
 
     public static void toggleStop(ServerPlayerEntity player) {
-        ACTIVE.remove(player.getUuid());}
+        ACTIVE.remove(player.getUuid());
+    }
 
     public static boolean isActive(ServerPlayerEntity player) {
-        return ACTIVE.contains(player.getUuid());}
+        return ACTIVE.contains(player.getUuid());
+    }
 
     public static void tick(ServerPlayerEntity player, World world) {
+
         if (!isActive(player))
         {return;}
-        ticks++;
-        BlockPos center = player.getBlockPos();
 
-        if (ticks % 30 == 0) {
+        ticks++;
+
+        BlockPos center = player.getBlockPos();
+        if (ticks % 15 == 0) {
 
             int x = center.getX() + (int)(Math.random() * 18) - 9;
             int z = center.getZ() + (int)(Math.random() * 18) - 9;
@@ -37,15 +42,20 @@ public class LavaStartAbility {
             for (int y = 255; y >= 0; y--) {
 
                 BlockPos pos = new BlockPos(x, y, z);
+
                 if (!world.getBlockState(pos).isAir()) {
-              world.setBlockState(pos, Blocks.AIR.getDefaultState());
-                }}}
-        if (ticks % 10 == 0) {
+                    world.setBlockState(pos, Blocks.AIR.getDefaultState());
+                }
+            }
+        }
+
+        if (ticks % 25 == 0) {
 
             int x = center.getX() + (int)(Math.random() * 18) - 9;
             int z = center.getZ() + (int)(Math.random() * 18) - 9;
 
             BlockPos pos = new BlockPos(x, center.getY(), z);
+
             if (world.getBlockState(pos).isAir()) {
                 world.setBlockState(pos, Blocks.LAVA.getDefaultState());
             }

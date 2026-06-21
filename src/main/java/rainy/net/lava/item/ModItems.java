@@ -7,13 +7,14 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import rainy.net.lava.Lava;
+import rainy.net.lava.LavaStartItem;
+import rainy.net.lava.LavaStopItem;
 
 public class ModItems {
 
-    public static Item START = registerItem("start", new Item(new Item.Settings()));
+    public static final Item START = registerItem("start", new LavaStartItem(new Item.Settings()));
 
-    public static Item STOP = registerItem("stop", new Item(new Item.Settings()));
-
+    public static final Item STOP = registerItem("stop", new LavaStopItem(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Lava.MOD_ID, name), item);
