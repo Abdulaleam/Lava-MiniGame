@@ -17,7 +17,7 @@ public class LavaStopItem extends Item {
 
         if (!world.isClient && user instanceof ServerPlayerEntity player) {
             rainy.net.lava.LavaStartAbility.toggleStop(player);
-            player.sendMessage(net.minecraft.text.Text.literal("§aGame Ended"), false);
+            player.sendMessage(net.minecraft.text.Text.literal("§cGame Ended"), false);
 
         }
 
