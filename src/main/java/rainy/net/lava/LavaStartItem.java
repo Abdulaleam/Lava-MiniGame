@@ -18,6 +18,7 @@ public class LavaStartItem extends Item {
 
         if (!world.isClient && user instanceof ServerPlayerEntity player) {
             rainy.net.lava.LavaStartAbility.toggleStart(player);
+            player.sendMessage(net.minecraft.text.Text.literal("§aGame Started"), false);
         }
 
         return TypedActionResult.success(user.getStackInHand(hand));
