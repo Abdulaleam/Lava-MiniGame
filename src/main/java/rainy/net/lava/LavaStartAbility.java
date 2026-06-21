@@ -34,7 +34,7 @@ public class LavaStartAbility {
         ticks++;
 
         BlockPos center = player.getBlockPos();
-        if (ticks % 15 == 0) {
+        if (ticks % 10 == 0) {
 
             int x = center.getX() + (int)(Math.random() * 18) - 9;
             int z = center.getZ() + (int)(Math.random() * 18) - 9;
@@ -49,7 +49,7 @@ public class LavaStartAbility {
             }
         }
 
-        if (ticks % 25 == 0) {
+        if (ticks % 20 == 0) {
 
             int x = center.getX() + (int)(Math.random() * 18) - 9;
             int z = center.getZ() + (int)(Math.random() * 18) - 9;
